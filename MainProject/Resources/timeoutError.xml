@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<content>
+    <head>
+        <style>
+
+        </style>
+        <script src="RYTL.lua" type="text/x-lua"></script>
+        <script type='text/x-lua'>
+            <![CDATA[         
+               ryt = RYTL:new{};   
+
+               function alertback(buttonname) 
+                  if buttonname == 1 then
+                     window:close();
+                  else
+                     utility:tls();
+                  end;
+               end;
+
+               function warn_time_out()
+                  window:alert("很抱歉，会话超时，重新登陆请点击确定按钮，退出请点击取消按钮","重新登录", "退出", alertback);
+               end;
+               warn_time_out();
+            ]]>
+        </script>
+    </head>
+</content>

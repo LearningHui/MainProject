@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<content>
+  <head>
+    <style>
+      .body {width:320px;background-image:url(loading_ryt.png);}
+      .loaddiv {width:66px;height:66px;top:266px;left:127px;background-image:url(loading_bj.png);}
+      .bglabel {width:200px;height:9px;top:420px;left:60px;font-size:15px;text-align:center;background-color:#D2D2D2;}
+      .foreignlabel {width:0.1px;height:10px;top:420px;left:60px;background-color:#006CB4;}
+      .fontlabel {width:200px;height:10px;top:420px;left:60px;color:#EEEEEE;font-size:9px;text-align:center;}
+      .jumpbtn {width:120px;height:30px;top:450px;left:100px;color:#EEEEEE;font-size:18px;background-color:#23A2DB}
+    </style>
+    <script type="text/x-lua" src="RYTL.lua"></script>
+    <script type="text/x-lua">
+      <![CDATA[
+            function loading()
+                local frames_tab = {
+                                    "loading_circle8.png","loading_circle1.png","loading_circle2.png",
+                                    "loading_circle3.png","loading_circle4.png","loading_circle5.png",
+                                    "loading_circle6.png","loading_circle7.png","loading_circle8.png",
+                                    "loading_circle1.png","loading_circle2.png","loading_circle3.png",
+                                    "loading_circle4.png","loading_circle5.png","loading_circle6.png",
+                                    "loading_circle7.png" 
+                                    };
+                local animaFramObj = animation:newFrames(frames_tab);
+                --动画对象显示区域 
+                --当x=0以及y=0时动画显示父控件左上角
+                --当x=10时横向偏移10像素
+                --当y=10时纵向偏移10像素
+                local wz_tab = {x=0,y=0,width=66,height=66};
+                
+                animation:setFrame(animaFramObj,wz_tab);
+                                
+                local div_ctrl = document:getElementsByName("loaddiv");
+                --为此对象设置动画父控件。
+                animation:add(animaFramObj,div_ctrl[1]);
+                --动画持续时间
+                animation:setDuration(animaFramObj,2);
+                --重复播放次数
+                local rep_count = -1;
+                animation:setRepeatCount(animaFramObj,rep_count);
+                --执行动画
+                animation:play(animaFramObj);
+            end;
+            loading();
+         
+            local version = offline:version();
+            -- tls 接口返回的页面报文
+            local content;
+            local nojump = true;
+            
+            local bgCtrl = document:getElementsByName("bglabel");
+            local foreignCtrl = document:getElementsByName("foreignlabel");
+            local fontCtrl = document:getElementsByName("fontlabel");
+            local jumpCtrl = document:getElementsByName("jumpbutton");
+
+            -- 下载进度回掉：
+            function processCallback(downNum, totalNum)
+                if nojump then
+                    local persent = math.floor(downNum*100/totalNum);
+                    local pers = persent * 2
+                    if bgCtrl and #bgCtrl > 0 then
+                        foreignCtrl[1]:setStyleByName("width", pers);
+                        fontCtrl[1]:setPropertyByName("text", persent.."%");
+                    end;
+                end
+            end
+            
+            -- 下载结束回掉：
+            function finishedCallback(failtable)
+                if nojump then
+                    local failPaths = "";
+                    if failtable and #failtable > 0 then
+                        for k1,v1 in pairs(failtable) do
+                            failPaths = failPaths..v1..",";
+                        end;
+                        window:alert("下载失败文件："..failPaths);
+                    else
+                        window:alert("下载完成");
+                    end;
+                    location:replace(content);
+                end
+            end
+            
+            function replacePage()
+                location:replace(content);
+                nojump = false;
+            end
+            
+            -- 下载进度提醒 回调方法：
+            -- 若btnIndex = 0， 用户点击确定按钮，下载资源同时有进度提醒
+            function show_process_callback(btnIndex)
+                local cbparams = {processCallback=processCallback, finishedCallback=finishedCallback};
+                if btnIndex == 0 then
+                    -- 用户点击[确定]按钮
+                    bgCtrl[1]:setPropertyByName("hide", "false");
+                    jumpCtrl[1]:setPropertyByName("hide", "false");
+                    offline:update_resource(cbparams);
+                else
+                    offline:update_resource();
+                    -- 页面替换
+                    location:replace(content);
+                end
+            end
+            
+         
+            -- window:alert 回调方法：
+            -- 若mustupdate = 0， 用户点击确定按钮提醒是否需要显示进度
+            function alert_callback_zero(btnIndex)
+                if btnIndex == 0 then
+                    -- 用户点击[确定]按钮
+                    if version >= 2 then
+                    	  window:alert("是否显示下载进度？", "确定", "取消", show_process_callback);
+                    else
+                    	  offline:update_resource();
+                    	  location:replace(content);
+                    end
+                else
+                    -- 页面替换
+                    location:replace(content);
+                end
+            end
+            
+            function alert_callback_one(btnIndex)
+                -- 页面替换
+                location:replace(content);
+            end
+            
+            -- offline:update_desc 回调方法：
+            -- 根据mustupdate 值给出提示信息，并替换页面
+            function updateDesc_callback(mustUpdate)
+                if mustUpdate == 0 then
+                    window:alert("您有新的离线资源需要下载，是否更新？", "确定", "取消", alert_callback_zero);
+                elseif mustUpdate == 1 then
+                    offline:update_resource();
+                    window:alert("有离线资源正在更新", "确定", alert_callback_one);
+                else
+                    -- 页面替换
+                    location:replace(content);
+                end
+            end
+            
+                        
+            --tls 回调方法： 若有必选资源更新时，走offline:update_desc接口；否则页面替换
+            function tls_callback(params)
+                content = params["content"];
+                local update = params["update"];
+                if update == 1 or update == 2 or update == 3 then
+                    -- 有必选可选资源更新时
+                    offline:update_desc(updateDesc_callback);
+                else
+                    -- 页面替换
+                    location:replace(content);
+                end
+            end 
+            
+            if version == 0 then
+                utility:tls({});
+            elseif version >= 1 then
+                tls:connect(tls_callback);
+            end
+        
+        
+            ]]>
+    </script>
+  </head>
+  <body name='body' class='body'>
+    <div class='loaddiv' name='loaddiv' border='0' ></div>
+    <label hide='true' class='bglabel' name='bglabel'></label>
+    <label class='foreignlabel' name='foreignlabel'></label>
+    <label class='fontlabel' name='fontlabel'></label>
+    <input hide='true' class='jumpbtn' type='button' name='jumpbutton' value='跳过下载进度' onclick='replacePage()'></input>
+  </body>
+</content>

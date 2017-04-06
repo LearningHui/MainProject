@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<list>
+
+  <newlineObject>RYTTable,RYTBr</newlineObject>
+
+  <object class="RYTBodyControl" init="initWithNoParam" tag="body">
+  </object>
+
+  <object class="RYTLabelControl" init="initWithParam" tag="label">
+    <param key="Frame">0.0,0.0,450.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTMutableLabel" init="initWithParam" tag="label" type="mutable">
+    <param key="Frame">0.0,0.0,40.0,40.0</param>
+  </object>
+
+  <object class="RYTIAndEmControl" init="initWithParam" tag="i">
+    <param key="Frame">0.0,0.0,320.0,30.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTIAndEmControl" init="initWithParam" tag="em">
+    <param key="Frame">0.0,0.0,320.0,30.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTBAndStrongControl" init="initWithParam" tag="strong">
+    <param key="Frame">0.0,0.0,320.0,30.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTBAndStrongControl" init="initWithParam" tag="b">
+    <param key="Frame">0.0,0.0,320.0,30.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+  
+  <object class="RYTLabelControl" init="initWithParam" tag="label" type="ghlist">
+    <param key="Frame">0.0,0.0,450.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTTableControl" init="initWithParam" tag="table" type="scrolltable">
+    <param key="Frame">0.0,0.0,460.0,130.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+  </object>
+  
+  <object class="RYTTableControl" init="initWithParam" tag="table">
+    <param key="Frame">0.0,0.0,460.0,130.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+  </object>
+
+  <object class="RYTScrollTableControl" init="initWithParam" tag="table" type="scrolltable">
+    <param key="Frame">0.0,0.0,460.0,130.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+  </object>
+
+  <object class="RYTTrControl" init="initWithNoParam" tag="tr">
+  </object>
+
+  <object class="RYTTdControl" init="initWithNoParam" tag="td">
+  </object>
+  
+  <object class="RYTTdControl" init="initWithNoParam" tag="th">
+  </object>
+
+  <object class="RYTAControl" init="initWithParam" tag="a">
+    <param key="Frame">0.0,0.0,460.0,40.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+    <param key="FrontColor">#576B95</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTBrControl" init="initWithNoParam" tag="br">
+  </object>
+
+  <object class="RYTSelectControl" init="initWithParam" tag="select" type="">
+    <param key="Frame">0.0,0.0,220.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTOptionControl" init="initWithNoParam" tag="option">
+  </object>
+
+  <object class="RYTRadioControl" init="initWithParam" tag="input" type="radio">
+    <param key="Frame">0.0,0.0,460.0,40.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTCheckBoxControl" init="initWithParam" tag="input" type="checkbox">
+    <param key="Frame">0.0,0.0,460.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTButtonControl" init="initWithParam" tag="input" type="submit">
+    <param key="Frame">0.0,0.0,460.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">24.0</param>
+  </object>
+
+  <object class="RYTButtonControl" init="initWithParam" tag="input" type="button">
+    <param key="Frame">0.0,0.0,460.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTButtonControl" init="initWithParam" tag="input" type="reset">
+    <param key="Frame">0.0,0.0,460.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">24.0</param>
+  </object>
+
+  <object class="RYTSegmentControl" init="initWithParam" tag="input" type="segment">
+    <param key="Frame">0.0,0.0,460.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTSegmentControl" init="initWithParam" tag="input" type="buttonradio">
+    <param key="Frame">0.0,0.0,460.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTSegmentControl" init="initWithParam" tag="input" type="radio" segment="yes">
+    <param key="Frame">0.0,0.0,460.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTSwitchControl" init="initWithParam" tag="input" type="switch">
+    <param key="Frame">0.0,0.0,210.0,55.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTSwitchControl" init="initWithParam" tag="input" type="radio" switch="yes">
+    <param key="Frame">0.0,0.0,210.0,55.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTInputControl" init="initWithParam" tag="input" type="text">
+    <param key="Frame">0.0,0.0,460.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+    <object class="RYTInputControl" init="initWithParam" tag="textarea">
+    <param key="Frame">0.0,0.0,460.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+  
+  <object class="RYTPasswordControl" init="initWithParam" tag="input" type="password">
+    <param key="Frame">0.0,0.0,460.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTHiddenControl" init="initWithNoParam" tag="input" type="hidden">
+  </object>
+
+  <object class="RYTFormControl" init="initWithParam" tag="form">
+    <param key="Frame">10.0,10.0,460.0,90.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+  </object>
+
+  <object class="RYTDivControl" init="initWithParam" tag="div">
+    <param key="Frame">10.0,10.0,460.0,185.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+  </object>
+
+  <object class="RYTWebViewControl" init="initWithNoParam" tag="div" type="webview">
+  </object>
+
+  <object class="RYTImageControl" init="initWithParam" tag="image">
+    <param key="Frame">0.0,0.0,200.0,200.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+  </object>
+
+  <object class="RYTImageControl" init="initWithParam" tag="img">
+    <param key="Frame">0.0,0.0,252.0,104.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+  </object>
+
+  <object class="RYTDatePickerControl" init="initWithParam" type="text" tag="input" style="-wap-input-format:'date'">
+    <param key="Frame">0.0,0.0,185.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+  </object>
+
+  <object class="RYTDatePickerControl" init="initWithParam" tag="datepicker">
+    <param key="Frame">0.0,0.0,185.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+  </object>
+
+  <object class="RYTDatePickerControl" init="initWithParam" tag="input" name='departDate'>
+    <param key="Frame">0.0,0.0,185.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">Yes</param>
+  </object>
+
+  <object class="RYTMapControl" init="initWithParam" tag="map">
+    <param key="Frame">0.0,0.0,460.0,750.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTMapControl" init="initWithParam" tag="div" type="map">
+    <param key="Frame">0.0,0.0,460.0,750.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTSearchControl" init="initWithParam" tag="input" type="search">
+    <param key="Frame">0.0,0.0,460.0,50.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTOlControl" init="initWithParam" tag="ol">
+    <param key="Frame">0.0,0.0,480.0,70.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTUlControl" init="initWithParam" tag="ul">
+    <param key="Frame">0.0,0.0,480.0,70.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTHistogramControl" init="initWithParam" tag="ul" type="histogram">
+    <param key="Frame">0.0,0.0,480.0,70.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTScaleControl" init="initWithParam" tag="ul" type="scale">
+    <param key="Frame">0.0,0.0,480.0,70.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTPolylineControl" init="initWithParam" tag="ul" type="polyline">
+    <param key="Frame">0.0,0.0,480.0,70.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTYscaleControl" init="initWithParam" tag="ul" type="yscale">
+    <param key="Frame">0.0,0.0,480.0,70.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTXscaleControl" init="initWithParam" tag="ul" type="xscale">
+    <param key="Frame">0.0,0.0,480.0,70.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTLiControl" init="initWithParam" tag="li">
+    <param key="Frame">0.0,0.0,480.0,70.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTOrgCityControl" init="initWithParam" tag="input" type="radio" name="orgCity">
+    <param key="Frame">0.0,0.0,480.0,70.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTCityControl" init="initWithParam" tag="map">
+    <param key="Frame">0.0,0.0,460.0,750.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTLotteryControl" init="initWithParam" tag="input" type="lottery">
+    <param key="Frame">0.0,0.0,460.0,240.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTLotteryListControl" init="initWithParam" tag="input" type="lotterylist">
+    <param key="Frame">0.0,0.0,460.0,240.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTPieChartControl" init="initWithParam" tag="input" type="cake">
+    <param key="Frame">0.0,0.0,400.0,400.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTElevatorControl" init="initWithParam" tag="input" type="elevator">
+    <param key="Frame">0.0,0.0,400.0,400.0</param>
+    <param key="Focus">NO</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">18.0</param>
+  </object>
+
+  <object class="RYTPlotControl" init="initWithParam" tag="div" type="plot">
+    <param key="Frame">0.0,0.0,300.0,250.0</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+  </object>
+
+  <object class="RYTBarPlotControl" init="initWithParam" tag="ul" type="barPlot">
+    <param key="Frame">0.0,0.0,20.0,50.0</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+  </object>
+
+  <object class="RYTBarPlotControl" init="initWithParam" tag="ul" type="cubePlot">
+    <param key="Frame">0.0,0.0,20.0,50.0</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+  </object>
+
+  <object class="RYTBarPlotControl" init="initWithParam" tag="ul" type="columnPlot">
+    <param key="Frame">0.0,0.0,20.0,50.0</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+  </object>
+
+  <object class="RYTLinePlotControl" init="initWithParam" tag="ul" type="linePlot">
+    <param key="Frame">0.0,0.0,10.0,10.0</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+  </object>
+
+  <object class="RYTLinePlotControl" init="initWithParam" tag="ul" type="ballPlot">
+    <param key="Frame">0.0,0.0,10.0,10.0</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+  </object>
+  
+  <object class="RYTPlotTipsControl" init="initWithParam" tag="div" type="tips">
+    <param key="Frame">0.0,0.0,300.0,250.0</param>
+    <param key="Hidden">NO</param>
+    <param key="Enable">YES</param>
+  </object>
+
+  <object class="RYTUlControl" init="initWithParam" tag="ul" type='xscale'>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">12.0</param>
+  </object>
+
+  <object class="RYTUlControl" init="initWithParam" tag="ul" type='yscale'>
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">12.0</param>
+  </object>
+  
+  <object class="RYTRichTextControl" init="initWithParam" tag="richtext" >
+    <param key="FrontColor">#000000</param>
+    <param key="FontSize">12.0</param>
+  </object>
+  <object class="RYTIFrameControl" init="initWithNoParam" tag="iframe">    
+  </object>
+
+</list>

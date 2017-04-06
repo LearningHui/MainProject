@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<content>
+  <head>
+    <style>
+      .btn {width:200px;height:100px;}
+      
+    </style>
+  </head>
+  <body>
+    <input type="button" border="1" class="btn" value="关闭" onclick="close()">
+    </input>
+  </body>
+</content>

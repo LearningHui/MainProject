@@ -1,0 +1,97 @@
+<content>
+
+  <head>
+
+    <style>
+      .label1 {color:#FFFFFF;font-weight:bold;font-size:25px;top:14px;left:123px;}
+      .button1 {left:10px;width:20px;height:23px;top:16px;background-image:url(back_03.png);}
+
+      .button2 {left:30px;top:30px;width:100px;height:23px;background-image:url(backbuttonbg.png);}
+      .button3 {left:190px;top:30px;width:100px;height:23px;background-image:url(backbuttonbg.png);}
+
+      .div1 {top:0px;width:320px;height:57px;left:0px;background-image:url(title_02.png);}
+      .div2 {top:67px;width:320px;height:307px;left:0px;}
+
+      .label-stylet {left:15px; top:100px;height:30px;width:300px;font-size:18px; color:#00AA88;font-weight:bold;}
+
+      .body1 {background-image:url(bodybg.png);}
+
+      .div6 {width:300px;height:200px;top:132px;left:10px;display:none;background-image:url(accounts_sure_bg.png);}
+      .label6 {top:8px;left:100px;color:#FFFFFF;font-size:20px;}
+      .button5 {font-size:18px;color:#FFFFFF;width:125px;height:40px;top:150px;left:16px;background-image:url(backButtonBg.png);}
+      .button4 {font-size:18px;color:#FFFFFF;width:125px;height:40px;top:150px;left:158px;background-image:url(backButtonBg.png);}
+    </style>
+
+    <script src="RYTL.lua" type="text/x-lua">
+    </script>
+    <script type='text/x-lua'>
+
+      <![CDATA[ 	
+    
+      ryt = RYTL:new{};   
+      
+      local back_index=1; 
+    
+      function yes() 
+        ryt:hide(3); 
+        ryt:close();  
+      end;
+    
+			function tls() 
+        utility:tls();
+			end; 
+      
+      function cancle() 
+        ryt:hide(3);
+        back_index=1;   
+			end;
+      
+      function Back()           
+        if back_index==1 then         
+          back_index=0;          
+          ryt:show("passwordDiv",3,false); 
+        else              
+          back_index=1;    
+          ryt:hide(3);    
+          end;
+      end; 
+      
+      window:setPhysicalkeyListener("backspace",Back);
+   		]]>
+    </script>
+
+  </head>
+
+  <body class='body1'>
+
+    <div name="title" class="div1">
+
+      <input class="button1" onclick="Back()" type="button" />
+
+      <label class="label1">
+        会话超时
+      </label>
+    </div>
+
+    <div class="div2">
+      <label class='label-stylet'>很抱歉，会话超时，请重新登录或退出！</label>
+      <br />
+      <input name="ebank_yhk" class="button2" onclick="tls()" type="button" value="重新登陆" />
+      <input name="ebank_yhk" class="button3" onclick="Back()" type="button" value="退出" />
+    </div>
+    
+    <div name="passwordDiv" class="div6">
+
+      <label class="label6">
+        是否退出应用？
+      </label>
+
+      <br />
+
+      <input class="button5" onclick="cancle()" type="button" value="取消" />
+
+      <input class="button4" onclick="yes()" type="button" value="确定" />
+    </div>
+  </body>
+
+</content>

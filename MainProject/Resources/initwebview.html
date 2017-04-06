@@ -1,0 +1,321 @@
+<html>
+<head>
+    <script type="text/javascript" charset="utf-8" src="EMPJSBridge-1.0.0.js"></script>
+    <script type="text/javascript">
+        function getDeviceInfo() {
+            Device();
+        }
+
+        function deviceTest() {
+            alert(uuid);
+            alert(platform);
+            alert(name);
+        }
+        function cameraOpen() {
+            camera.open(cameraOpenCallback);
+            //window.external.notify('ryt.camera|open|cameraOpenSuccess|cameraOpenFailed');
+        }
+        function cameraOpenCallback(errorcode, imagePath) {
+            if (errorcode == 0) {
+                var image = document.getElementById("cameraImg");
+                image.src = imagePath;
+            }
+            else {
+                alert("cameraOpenCallback failed");
+            }
+        }
+
+        function getCurrentLocation() {
+            geolocation.getCurrentLocation(getCurrentLocationS, 1000.0);
+            //window.external.notify('ryt.geolocation|getCurrentLocation|getCurrentLocationSuccess|getCurrentLocationFailed|1000.0');
+        }
+
+        function QW(methodName, errorCode, objectParam) {
+            alert("QW");
+            alert(methodName);
+            alert(objectParam);
+            methodName(errorCode, objectParam);
+        }
+
+        function TEST() {
+            var info = { latitude: "-122.141197", longitude: "47.64483" };
+            getCurrentLocationS(0, info);
+        }
+
+        function TEST2(methodName, errorCode, objectParam) {
+            alert("TEST2");
+            alert(methodName);
+            alert(objectParam);
+            QW(methodName, errorCode, objectParam);
+        }
+
+        function TEST1(methodName, objectParam) {
+            window.external.notify('test');
+            //QW(methodName, objectParam);
+        }
+
+        function getCurrentLocationS(errorCode, pInfo) {
+            alert(pInfo.latitude);
+            alert(pInfo.longitude);
+        }
+
+        function getCurrentLocationSuccess(Latitude, Longitude) {
+            var tbLatitude = document.getElementById("tbLatitude");
+            var tbLongitude = document.getElementById("tbLongitude");
+            tbLatitude.value = Latitude;
+            tbLongitude.value = Longitude;
+        }
+        function getCurrentLocationFailed() {
+            alert("getCurrentLocationFailed");
+        }
+
+        function startAccelerometer() {
+            accelerometer.startAccelerometer(0.4, startAccelerometerSuccess, startAccelerometerFailed);
+            //window.external.notify("ryt.accelerometer|startAccelerometer|startAccelerometerSuccess|startAccelerometerFailed|0.4");
+        }
+        function stopAccelerometer() {
+            accelerometer.stopAccelerometer();
+            //window.external.notify("ryt.accelerometer|stopAccelerometer");
+        }
+        function startAccelerometerSuccess(x, y, z) {
+            var tbX = document.getElementById("x");
+            var tbY = document.getElementById("y");
+            var tbZ = document.getElementById("z");
+            tbX.value = x;
+            tbY.value = y;
+            tbZ.value = z;
+        }
+        function startAccelerometerFailed() {
+            alert("startAccelerometerFailed");
+            //window.external.notify("msg|startAccelerometerFailed");
+        }
+
+        function sendSMS() {
+            var num = document.getElementById("tbSMSNum");
+            var content = document.getElementById("tbSMSContent");
+            sms.send(num.value, content.value);
+        }
+
+        function openContact() {
+            contact.open();
+        }
+
+        function addContact() {
+            var name = document.getElementById("tbName");
+            var phone = document.getElementById("tbPhoneNum");
+            var email = document.getElementById("tbEmail");
+
+            contact.add(addContactSuccess, addContactFailed, name.value, phone.value, email.value);
+        }
+        function addContactSuccess() {
+            alert("addContactSuccess");
+        }
+        function addContactFailed() {
+            alert("addContactFailed");
+        }
+
+        function getContact() {
+            contact.copy(getContactSuccess, getContactFailed);
+        }
+
+        function getContactSuccess(name, email) {
+            var tbname = document.getElementById("tbName");
+            var tbemail = document.getElementById("tbEmail");
+            tbname.value = name;
+            tbemail.value = email;
+        }
+        function getContactFailed() {
+        }
+
+        function getDeviceName() {
+            device.name(getDeviceNameSuccess, null);
+        }
+        function getDeviceNameSuccess(value) {
+            var element = document.getElementById("tbDeviceName");
+            element.value = value;
+        }
+        function getDeviceVersion() {
+            device.version(getDeviceVersionSuccess, null);
+        }
+        function getDeviceVersionSuccess(value) {
+            var element = document.getElementById("tbDeviceVersion");
+            element.value = value;
+        }
+        function getDevicePlatform() {
+            device.platform(getDevicePlatformSuccess, null);
+        }
+        function getDevicePlatformSuccess(value) {
+            var element = document.getElementById("tbDevicePlatform");
+            element.value = value;
+        }
+        function getDeviceID() {
+            device.uuid(getDeviceIDSuccess, null);
+        }
+        function getDeviceIDSuccess(value) {
+            var element = document.getElementById("tbDeviceID");
+            element.value = value;
+        }
+
+        function getConnnectType() {
+            http.connectType(getConnectTypeSuccess, null);
+        }
+
+        function getConnectTypeSuccess(value) {
+            var element = document.getElementById("tbConnnectType");
+            element.value = value;
+        }
+
+        function isReachable(host) {
+            var host = "http://bbs.55bbs.com/forum-33-1.html";
+            http.isReachable(host, isReachableSuccess, isReachableFailed);
+        }
+
+        function isReachableSuccess(value) {
+            var element = document.getElementById("tbIsHttpReachable");
+            element.value = value;
+        }
+
+        function isReachableFailed() {
+        }
+
+        function fileWrite(fileName) {
+            var element = document.getElementById("tbFileWrite");
+            file.write(fileName, element.value);
+        }
+
+        function fileRead(fileName, fileType) {
+            file.read(fileName, fileType, fileReadSuccess, fileReadFailed);
+        }
+        function fileReadSuccess(fileType, fileContent) {
+            var element = document.getElementById("tbFileRead");
+            if (fileType == "text") {
+                element.value = fileContent;
+            }
+        }
+        function fileReadFailed() {
+        }
+
+        var videoCode;
+
+        function loadVideo(src) {
+            video.load(loadVideoSuccess, loadVideoFailed, src);
+        }
+        function loadVideoSuccess(code) {
+            videoCode = code;
+            video.play(code);
+        }
+        function loadVideoFailed() {
+        }
+
+        function pauseVideo() {
+            video.pause(videoCode);
+        }
+
+        function resumeVideo() {
+            video.resume(videoCode);
+        }
+
+        function disposeVideo() {
+            video.dispose(videoCode);
+        }
+
+        function stopVideo() {
+            video.stop(videoCode);
+        }
+
+    </script>
+</head>
+<body>
+    <a href="http://www.baidu.com">Test</a>
+    <br />
+    <br />
+    <br />
+    <label>
+        Camera:</label>
+    <br />
+    <input type="button" value="cameraOpen" onclick="cameraOpen()" />
+    <img id="cameraImg" />
+    <br />
+    <br />
+    <label>
+        Geolocation:</label>
+    <br />
+    <input type="button" value="getCurrentLocation" onclick="getCurrentLocation()" />
+    <input type="text" id="tbLatitude" />
+    <input type="text" id="tbLongitude" />
+    <input type="button" value="TEST" onclick="TEST1()" />
+    <br />
+    <label>
+        Accelerometer:</label>
+    <br />
+    <input type="button" value="startAccelerometer" onclick="startAccelerometer()" />
+    <input type="text" id="x" />
+    <input type="text" id="y" />
+    <input type="text" id="z" />
+    <input type="button" value="stopAccelerometer" onclick="stopAccelerometer()" />
+    <br />
+    <br />
+    <label>
+        SMS:</label>
+    <br />
+    <input type="text" id="tbSMSNum" />
+    <input type="text" id="tbSMSContent" />
+    <input type="button" value="sendSMS" onclick="sendSMS()" />
+    <br />
+    <label>
+        Contact:</label>
+    <br />
+    <input type="button" value="openContact" onclick="openContact()" />
+    <br />
+    <input type="text" id="tbName" />
+    <input type="text" id="tbPhoneNum" />
+    <input type="text" id="tbEmail" />
+    <input type="button" value="addContact" onclick="addContact()" />
+    <br />
+    <input type="button" value="getContact" onclick="getContact()" />
+    <br />
+    <label>
+        Device:</label>
+    <br />
+    <input type="button" value="getDeviceInfo" onclick="getDeviceInfo()" />
+    <br />
+    <input type="text" id="tbDeviceName" />
+    <input type="button" value="getDeviceName" onclick="deviceTest()" />
+    <br />
+    <input type="text" id="tbDevicePlatform" />
+    <input type="button" value="getDevicePlatform" onclick="getDevicePlatform()" />
+    <br />
+    <input type="text" id="tbDeviceVersion" />
+    <input type="button" value="getDeviceVersion" onclick="getDeviceVersion()" />
+    <br />
+    <input type="text" id="tbDeviceID" />
+    <input type="button" value="getDeviceID" onclick="getDeviceID()" />
+    <br />
+    <label>
+        Http:</label>
+    <br />
+    <input type="text" id="tbConnnectType" />
+    <input type="button" value="getConnnectType" onclick="getConnnectType()" />
+    <br />
+    <input type="text" id="tbIsHttpReachable" />
+    <input type="button" value="isHttpReachable" onclick="isReachable()" />
+    <br />
+    <label>
+        File:</label>
+    <br />
+    <input type="text" id="tbFileWrite" />
+    <input type="button" value="fileWrite" onclick="fileWrite('Test')" />
+    <br />
+    <input type="text" id="tbFileRead" />
+    <input type="button" value="fileRead" onclick="fileRead('Test','text')" />
+    <br />
+    <label>
+        Video:</label>
+    <br />
+    <input type="button" value="loadVideo" onclick="loadVideo('res://Resources/Demo.wmv')" />
+    <input type="button" value="pauseVideo" onclick="pauseVideo()" />
+    <input type="button" value="resumeVideo" onclick="resumeVideo()" />
+    <input type="button" value="stopVideo" onclick="stopVideo()" />
+    <input type="button" value="disposeVideo" onclick="disposeVideo()" />
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=640,height=921,initial-scale=0.5" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <script type="text/javascript" charset="utf-8" src="EMPJSBridge-1.0.0.js"></script>
+    <script type="text/javascript">
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function callback(errorCode, sel_result) {
+            if (errorCode != 0) {
+                if (errorCode == 6) {
+                    alert("OPEN_FAIL_ERROR");
+                    return;
+                } else if (errorCode == 5) {
+                    alert("UPDATE_FAIL_ERROR");
+                    return;
+                } else if (errorCode == 4) {
+                    alert("INSERT_FAIL_ERROR");
+                    return;
+                } else if (errorCode == 3) {
+                    alert("GET_FAIL_ERROR");
+                    return;
+                } else if (errorCode == 2) {
+                    alert("ADD_FAIL_ERROR");
+                    return;
+                } else if (errorCode == 1) {
+                    alert("UNKNOWN_ERROR");
+                    return;
+                }
+            }
+            else {
+                alert("sql语句执行成功。");
+                var resType = typeof (sel_result);
+
+                if (resType != "string") {
+                    var resLen = sel_result.length;
+                    for (i = 0; i < resLen; i++) {
+                        var resItem = sel_result[i];
+                        alert(resItem);
+                    }
+                }
+            }
+        };
+
+        /**执行sql语句**/
+        function execSql() {
+            var newDb = new Database("utdb.sql");
+//            var userSql = "CREATE TABLE 'user' ('name' VARCHAR NOT NULL , 'phoneNum' INTEGER NOT NULL , 'sex' VARCHAR, 'age' INTEGER);";
+//            newDb.exec(userSql);
+//            var insertSql = "INSERT INTO 'user' VALUES('huang.miaomiao',13200000000,'women',0);";
+//            newDb.exec(insertSql);
+            var insertSql = "INSERT INTO 'user' VALUES('xie.lijun',13333333333,'women',0);";
+            newDb.exec(insertSql);
+            var selectSql = "SELECT * FROM user ;";
+            newDb.exec(selectSql, callback);
+        };
+
+    </script>
+</head>
+<body>
+    <input class="img_photo" type="button" value="执行sql语句" onclick="execSql()" />
+</body>
+</html>
